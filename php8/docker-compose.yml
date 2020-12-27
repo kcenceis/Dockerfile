@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+    php8:
+        image: kcenceis/php8
+        restart: unless-stopped
+        container_name: php8
+        # tty: true
+        volumes:
+                - /etc/nginx/:/etc/nginx/
+        networks:
+                mynet:
+                        ipv4_address: 172.30.0.6
+                        ipv6_address: FD00::6
+networks:
+        mynet:
+                external: true
+
