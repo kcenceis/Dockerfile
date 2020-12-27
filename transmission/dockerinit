@@ -1,0 +1,2 @@
+#!/bin/sh
+/usr/bin/transmission-daemon -f --log-error 
