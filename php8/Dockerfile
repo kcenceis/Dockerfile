@@ -6,10 +6,10 @@ ENV php_version 8.0
 ADD phprun.sh /
 
 RUN apt update && \
-    apt upgrade && \
+    apt upgrade -y && \
     apt install apt-transport-https lsb-release ca-certificates wget -y && \
-    wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg &&\
-    echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list &&\
+    wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg && \
+    echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list && \
     apt update
 
 RUN apt install -y php${php_version}-cli  \
